@@ -12,7 +12,6 @@ object project4 {
     this.setWord(word)
     this.setTimes(times)
    
-    
     def getWord() : String = word
     def setWord(word : String) = this.word=word
     def getTimes() : Int = times
@@ -21,7 +20,6 @@ object project4 {
     override def toString() : String={
       return "Word: %s occurs %d times".format(this.word,this.times) 
     }
-    
   }
   
    def main(args : Array[String] ){
@@ -58,8 +56,7 @@ object project4 {
            else{
              var word = new Word(element,count)
              uniqueBuffer += word
-           }
-           
+           } 
        }
        //Prints how many times a word occurs
        println("List of Words:")
@@ -69,7 +66,7 @@ object project4 {
         //Prints unique words
         println("List of Unique Words:")
         for(element <- uniqueBuffer){
-          println(element)
+          println(element+" (unique)")
         }
       }
      def fileIO(fileName : String, fileContent : String){
