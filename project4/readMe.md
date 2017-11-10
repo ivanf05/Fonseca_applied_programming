@@ -9,3 +9,4 @@ class object Word contains word and the amount of times it occurs.
 Then in main a double loop iterates through each word in the array and counts how many times
 it occurs. Then creates hash object that are added into an ArrayBuffer. If count is 1 then it'scala
 added into uniqueBuffer. Objects in both buffers are printed
+
