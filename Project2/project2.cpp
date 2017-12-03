@@ -40,8 +40,8 @@ class HeadNode{
 				list_length++;
 			}
 		}
-		void remove(int pos,int del){
-			int middle,end;
+		void remove(int del){
+		
 		
 			Node* delPtr = NULL;
 			temp = head;
@@ -52,10 +52,8 @@ class HeadNode{
 				curr = curr -> next;
 			}
 			//Deletes first node in list 
-			if(pos == 1){
+			if(curr == head){
 				//Initializes the middle and end of list also
-				middle = list_length /2;
-				end = list_length;
 				delPtr = curr;
 				curr = curr -> next;
 				temp -> next = curr; 
@@ -65,22 +63,23 @@ class HeadNode{
 				cout<< del<< " was deleted at the Front:"<<endl;
 			}
 			//Deletes node in middle
-			else if(pos == middle){
-				delPtr = curr;
-				curr = curr -> next;
-				temp -> next = curr; 
-				delete delPtr;
-				list_length--;
-				cout<< del<< " was deleted at the middle:"<<endl;	
-			}
+		
 			//Deletes node in end
-			else if(pos == end){
+			else if(curr -> next == NULL){
 				delPtr = curr;
 				curr = curr -> next;
 				temp -> next = curr; 
 				delete delPtr;
 				list_length--;
 				cout<< del<< " was deleted at the End:"<<endl;		
+			}
+			else{
+				delPtr = curr;
+				curr = curr -> next;
+				temp -> next = curr; 
+				delete delPtr;
+				list_length--;
+				cout<< del<< " was deleted at the middle:"<<endl;	
 			}
 		}
 		//Tranverses the list and prints it out
@@ -134,9 +133,10 @@ int main(){
 	headNode.reverse();
 	cout<<""<<endl;
 	//Deletes the front, middle, and end Nodes of list
-	for(int i=1;i<=10;i++){
-		headNode.remove(i,i);
-	}
+
+	headNode.remove(1);
+	headNode.remove(3);
+	headNode.remove(10);
 	headNode.print();
 	cout<<""<<endl;
 	cout<<"List traversed reversed"<<endl;
